@@ -1,7 +1,5 @@
 package com.example.restapitrainingfacility.entity;
 
-import com.example.restapitrainingfacility.entity.Author;
-
 import javax.persistence.*;
 import java.util.*;
 
@@ -31,13 +29,13 @@ public class Book {
     private String file;
 
     @Column(name = "added")
-    private String added;
+    private Date added;
 
     @Column(name = "modified")
-    private String modified;
+    private Date modified;
 
     @Column(name = "file_added")
-    private String fileadded;
+    private Date fileadded;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinTable(name = "book_has_author", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
@@ -84,15 +82,15 @@ public class Book {
         return file;
     }
 
-    public String getAdded() {
+    public Date getAdded() {
         return added;
     }
 
-    public String getModified() {
+    public Date getModified() {
         return modified;
     }
 
-    public String getFileadded() {
+    public Date getFileadded() {
         return fileadded;
     }
 
@@ -116,7 +114,7 @@ public class Book {
     }
 
     public void setFileAdded() {
-        this.fileAdded = new Date();
+        this.fileadded = new Date();
     }
 
 
